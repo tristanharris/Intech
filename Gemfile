@@ -6,4 +6,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
