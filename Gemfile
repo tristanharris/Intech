@@ -9,4 +9,5 @@ group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'metrical'
 end
