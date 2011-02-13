@@ -10,6 +10,9 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /^the lecture page for "([^"]+)"$/
+      lecture_path(Lecture.find_by_title($1) || raise("Could not find lecture #{$1}"))
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
