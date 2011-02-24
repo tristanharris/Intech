@@ -9,6 +9,6 @@ Feature: Customer views lecture
       | September Space Lecture | 14/09/2011 18:30 | 'About Space' by Doctor XX |
     When I go to the lecture page for "September Space Lecture"
     Then I should see "September Space Lecture"
-    Then I should see "Wed 14 Sep"
-    Then I should see "'About Space' by Doctor XX"
+    And I should see "Wed 14 Sep"
+    And I should see "'About Space' by Doctor XX"
 

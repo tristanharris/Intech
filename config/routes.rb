@@ -57,4 +57,8 @@ Intech::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
   match 'lecture/:id' => 'lecture#show', :as => :lecture
+
+  namespace :admin do
+    resources :lectures
+  end
 end

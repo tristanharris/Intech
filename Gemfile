@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
 gem 'haml'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -10,4 +11,6 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'metrical'
+  gem 'launchy'
+  gem 'xpath'
 end
