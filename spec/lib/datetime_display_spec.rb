@@ -6,3 +6,10 @@ describe Date do
   its(:pretty) { should == 'Sun 13 Feb' }
 
 end
+
+describe Time do
+  subject { Time.parse('13/02/2011 18:32') }
+
+  its(:pretty) { should == '13/02/2011 18:32' }
+
+end
