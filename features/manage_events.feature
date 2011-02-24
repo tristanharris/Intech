@@ -3,6 +3,11 @@ Feature: Manage events
   Intech
   wants event administration
 
+  Scenario: Add new event
+    Given I am on the admin page
+    When I follow "Add new Lecture"
+    Then I should be on the new event page
+
   Scenario: Register new event
     Given I am on the new event page
     When I fill in "Title" with "The Universe"

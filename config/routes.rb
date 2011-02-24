@@ -58,6 +58,7 @@ Intech::Application.routes.draw do
 
   match 'lecture/:id' => 'lecture#show', :as => :lecture
 
+  match 'admin', :controller => 'admin/lectures', :action => :index, :as => :admin
   namespace :admin do
     resources :lectures
   end
