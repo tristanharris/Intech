@@ -13,20 +13,13 @@ Then /^I should see the following events:$/ do |expected_events_table|
   expected_events_table.diff!(tableish('table tr', 'td,th'))
 end
 
-Given /^A lecture "([^"]*)"$/ do |name|
-  Lecture.create! :name => name
+Given /^A lecture "([^"]*)"$/ do |title|
+  Lecture.create! :title => title, :time => Time.now
 end
 
 Given /^Lectures:$/ do |table|
   table.hashes.each do |item|
     Lecture.create! item
   end
-end
-
-Then /^I should see my cart containing:$/ do |table|
-  page.should have_selector('.cart') do
-    with_text('Your Cart')
-  end
-  table.diff!(tableish('.cart tr', 'td,th'))
 end
 

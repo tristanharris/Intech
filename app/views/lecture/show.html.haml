@@ -1,3 +1,4 @@
 %h2= @lecture.title
 .date= @lecture.date.pretty
 .details= @lecture.details
+= button_to 'Add to basket', basket_item_path(@lecture), :method => :put
