@@ -14,6 +14,9 @@ module NavigationHelpers
     when /^the lecture page for "([^"]+)"$/
       lecture_path(Lecture.find_by_title($1) || raise("Could not find lecture #{$1}"))
 
+    when /^the lecture index page$/
+      lectures_path
+
     when /^the admin page$/
       admin_path
 

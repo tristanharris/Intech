@@ -16,4 +16,21 @@ describe LectureController do
       response.should render_template('show')
     end
   end
+
+  describe 'index' do
+    it 'finds the active lectures' do
+      lectures = mock (:lectures)
+      Lecture.should_receive(:active).and_return(lectures)
+      get :index
+      assigns(:lectures).should == lectures
+    end
+
+    it 'renders the index page' do
+      Lecture.stub!(:active)
+      get :index
+      response.should render_template('index')
+    end
+
+  end
+
 end

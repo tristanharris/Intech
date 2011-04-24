@@ -57,6 +57,7 @@ Intech::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
   get 'lecture/:id' => 'lecture#show', :as => :lecture
+  get 'lectures' => 'lecture#index', :as => :lectures
   put 'basket/:id' => 'basket#add', :as => :basket_item
   get 'basket' => 'basket#show', :as => :basket
 
@@ -64,4 +65,7 @@ Intech::Application.routes.draw do
   namespace :admin do
     resources :lectures
   end
+
+  root :to => 'lecture#index'
+
 end
