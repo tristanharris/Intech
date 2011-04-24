@@ -1,4 +1,9 @@
+%h2 Basket
+
 %table.basket
   - current_basket.lines.each do |line|
     %tr
       %td= line.title
+      %td= line.quantity
+      %td= line.price
+

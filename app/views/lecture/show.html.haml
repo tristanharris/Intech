@@ -1,4 +1,8 @@
 %h2= @lecture.title
 .date= @lecture.date.pretty
 .details= @lecture.details
-= button_to 'Add to basket', basket_item_path(@lecture), :method => :put
+= form_for @lecture_item, :url => basket_add_path do |f|
+  = f.hidden_field :item_id
+  = f.text_field :quantity
+  = f.submit 'Add to basket'
+

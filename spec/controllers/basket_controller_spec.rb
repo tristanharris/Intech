@@ -5,17 +5,16 @@ describe BasketController do
     before do
       @basket = mock(:basket, :add => true, :id => 1)
       controller.stub!(:current_basket => @basket)
-      @item = mock(:item)
-      Lecture.stub!(:find => @item)
+      @data = {'some' => 'data'}
     end
 
     it 'adds a product to the basket' do
-      @basket.should_receive(:add).with(@item)
-      put :add, :id => 2
+      @basket.should_receive(:add).with(@data)
+      post :add, {:order_line => @data}
     end
 
     it 'redirects to the basket' do
-      put :add, :id => 2
+      post :add, {:order_line => @data}
       response.should redirect_to basket_path
     end
   end

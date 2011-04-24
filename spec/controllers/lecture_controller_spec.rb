@@ -2,12 +2,23 @@ require 'spec_helper'
 
 describe LectureController do
   describe 'show' do
-    it 'find the lecture' do
+    before do
+      @lecture = mock_model(Lecture)
+      Lecture.stub!(:find => @lecture)
+    end
+
+    it 'finds the lecture' do
       id = mock(:id)
-      lecture = mock(:lecture)
-      Lecture.should_receive(:find).with(id).and_return lecture
+      Lecture.should_receive(:find).with(id)
       get :show, :id => id
-      assigns(:lecture).should == lecture
+      assigns(:lecture).should == @lecture
+    end
+
+    it 'builds an order line' do
+      line = mock(:line)
+      OrderLine.should_receive(:new).with(:item => @lecture, :quantity => 1).and_return(line)
+      get :show, :id => 1
+      assigns(:lecture_item).should == line
     end
 
     it 'renders the show page' do

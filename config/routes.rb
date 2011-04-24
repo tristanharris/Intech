@@ -58,7 +58,7 @@ Intech::Application.routes.draw do
 
   get 'lecture/:id' => 'lecture#show', :as => :lecture
   get 'lectures' => 'lecture#index', :as => :lectures
-  put 'basket/:id' => 'basket#add', :as => :basket_item
+  post 'basket' => 'basket#add', :as => :basket_add
   get 'basket' => 'basket#show', :as => :basket
 
   get 'admin', :controller => 'admin/lectures', :action => :index, :as => :admin
