@@ -1,5 +1,7 @@
 class Admin::LecturesController < ApplicationController
 
+  before_filter :set_section
+
   def index
     @lectures = Lecture.all
   end
@@ -16,6 +18,12 @@ class Admin::LecturesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def set_section
+    @section = 'admin'
   end
 
 end

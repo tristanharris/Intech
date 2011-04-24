@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.4'
 gem 'haml'
 gem 'simple_form'
+gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 
 group :development, :test do
   gem 'rspec-rails'
