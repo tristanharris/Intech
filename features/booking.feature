@@ -14,3 +14,10 @@ Feature: Booking
 
   Scenario: Customer books two tickets for one lecture
 
+  Scenario: Customer removes and item from the basket
+    Given A lecture "The Universe"
+    And I go to the lecture page for "The Universe"
+    And I press "Add to basket"
+    And I go to the basket page
+    When I click to remove basket item "The Universe"
+    Then I should see my basket empty

@@ -6,4 +6,5 @@
       %td= line.title
       %td= line.quantity
       %td= line.price
+      %td= button_to 'Remove', basket_remove_path(:item => line.item), :method => :delete
 

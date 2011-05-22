@@ -7,4 +7,12 @@ class Order < ActiveRecord::Base
     save
   end
 
+  def remove(item)
+    line = lines.all.find {|line| line.item == item}
+    if line
+      lines.delete(line)
+      save
+    end
+  end
+
 end

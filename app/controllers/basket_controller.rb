@@ -8,4 +8,9 @@ class BasketController < ApplicationController
   def show
   end
 
+  def remove
+    current_basket.remove(Lecture.find(params[:item]))
+    redirect_to basket_path
+  end
+
 end
