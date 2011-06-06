@@ -9,5 +9,6 @@
   %body{:class => @section}
 
     .container
+      = flash[:notice]
       = yield
 

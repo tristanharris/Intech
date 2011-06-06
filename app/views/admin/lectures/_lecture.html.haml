@@ -1,3 +1,3 @@
 .lecture
-  %h3= lecture.title
+  %h3= link_to lecture.title, edit_admin_lecture_path(lecture)
   %p= lecture.time.pretty
