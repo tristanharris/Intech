@@ -4,7 +4,6 @@ gem 'rails', '3.0.4'
 gem 'haml'
 gem 'sass'
 gem 'simple_form'
-gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 gem 'rake', '~> 0.8.7'
 
 group :development, :test do
