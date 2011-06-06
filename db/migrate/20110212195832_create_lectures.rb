@@ -5,6 +5,7 @@ class CreateLectures < ActiveRecord::Migration
       t.datetime :time
       t.text :details
       t.integer :max_seats
+      t.boolean :open
 
       t.timestamps
     end

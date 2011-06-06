@@ -14,11 +14,12 @@ Then /^I should see the following events:$/ do |expected_events_table|
 end
 
 Given /^A lecture "([^"]*)"$/ do |title|
-  Lecture.create! :title => title, :time => Time.now
+  Lecture.create! :title => title, :time => Time.now, :open => true
 end
 
 Given /^Lectures:$/ do |table|
   table.hashes.each do |item|
+    item[:open] = true
     Lecture.create! item
   end
 end
