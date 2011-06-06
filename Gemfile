@@ -15,4 +15,9 @@ group :development, :test do
   gem 'metrical'
   gem 'launchy'
   gem 'xpath'
+  gem 'heroku'
+end
+
+group :production do
+  gem 'pg'
 end
