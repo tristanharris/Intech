@@ -1,0 +1,7 @@
+%h2= @series.title
+.details= @series.details
+
+%ul
+  - @series.lectures.each do |lecture|
+    %li= link_to lecture.title, lecture
+

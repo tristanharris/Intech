@@ -23,6 +23,12 @@ module NavigationHelpers
     when /^the new event page$/
       new_admin_lecture_path
 
+    when /^the "([^"]+)" series page$/
+      series_path(Series.find_by_title($1) || raise("Could not find series #{$1}"))
+
+    when /^the series index page$/
+      series_index_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
