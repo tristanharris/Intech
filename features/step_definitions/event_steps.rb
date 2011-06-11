@@ -14,13 +14,16 @@ Then /^I should see the following events:$/ do |expected_events_table|
 end
 
 Given /^A lecture "([^"]*)"$/ do |title|
-  Lecture.create! :title => title, :time => Time.now, :open => true
+  create_lecture(:title => title)
 end
 
 Given /^Lectures:$/ do |table|
   table.hashes.each do |item|
-    item[:open] = true
-    Lecture.create! item
+    create_lecture(item)
   end
 end
 
+def create_lecture(data)
+  defaults = HashWithIndifferentAccess.new({:title => 'A Lecture', :time => Time.now + 2.days, :open => true})
+  Lecture.create! defaults.merge(data)
+end
