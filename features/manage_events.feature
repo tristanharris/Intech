@@ -17,13 +17,18 @@ Feature: Manage events
     And I should see "01/05/2011 18:30"
 
   Scenario: Edit event
+    Given Series:
+      | title |
+      | Space |
     Given Lectures:
       | title                   | time             | details     |
       | The Universe            | 01/05/2011 18:30 | Interesting |
     Given I am on the admin page
     When I follow "The Universe"
     When I fill in "Title" with "The Multiverse"
+    And I select "Space" from "Series"
     And I press "Update Lecture"
     Then I should see "The Multiverse"
     And I should see "01/05/2011 18:30"
+    And I should see "Series: Space"
 
