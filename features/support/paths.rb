@@ -20,8 +20,14 @@ module NavigationHelpers
     when /^the admin page$/
       admin_path
 
+    when /^the lecture admin page$/
+      admin_lectures_path
+
     when /^the new event page$/
       new_admin_lecture_path
+
+    when /^the new series page$/
+      new_admin_series_path
 
     when /^the "([^"]+)" series page$/
       series_path(Series.find_by_title($1) || raise("Could not find series #{$1}"))

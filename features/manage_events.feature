@@ -4,7 +4,7 @@ Feature: Manage events
   wants event administration
 
   Scenario: Add new event
-    Given I am on the admin page
+    Given I am on the lecture admin page
     When I follow "Add new Lecture"
     Then I should be on the new event page
 
@@ -23,7 +23,7 @@ Feature: Manage events
     Given Lectures:
       | title                   | time             | details     |
       | The Universe            | 01/05/2011 18:30 | Interesting |
-    Given I am on the admin page
+    Given I am on the lecture admin page
     When I follow "The Universe"
     When I fill in "Title" with "The Multiverse"
     And I select "Space" from "Series"

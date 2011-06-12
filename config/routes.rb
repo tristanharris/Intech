@@ -64,11 +64,12 @@ Intech::Application.routes.draw do
   get 'series/:id' => 'series#show', :as => :series
   get 'series' => 'series#index', :as => :series_index
 
-  get 'admin', :controller => 'admin/lectures', :action => :index, :as => :admin
+  get 'admin', :controller => 'admin/series', :action => :index, :as => :admin
   namespace :admin do
     resources :lectures
+    resources :series
   end
 
-  root :to => 'lecture#index'
+  root :to => 'series#index'
 
 end
