@@ -1,49 +1,35 @@
 require 'spec_helper'
 
-describe LectureController do
+describe LecturesController do
   describe 'show' do
     before do
       @lecture = mock_model(Lecture)
       @active = mock(:active_lectures, :find => @lecture)
-      Lecture.stub!(:active => @active)
+      series = mock(:series, :active_lectures => @active)
+      @active_series = mock(:active_series, :find => series)
+      Series.stub!(:active => @active_series)
     end
 
     it 'finds the lecture' do
       id = mock(:id)
-      Lecture.should_receive(:active)
+      @active_series.should_receive(:find).with(99)
       @active.should_receive(:find).with(id)
-      get :show, :id => id
+      get :show, :id => id, :series_id => 99
       assigns(:lecture).should == @lecture
     end
 
     it 'builds an order line' do
       line = mock(:line)
       OrderLine.should_receive(:new).with(:item => @lecture, :quantity => 1).and_return(line)
-      get :show, :id => 1
+      get :show, :id => 1, :series_id => 99
       assigns(:lecture_item).should == line
     end
 
     it 'renders the show page' do
       Lecture.stub!(:find)
-      get :show, :id => 1
+      get :show, :id => 1, :series_id => 99
       response.should render_template('show')
     end
-  end
-
-  describe 'index' do
-    it 'finds the active lectures' do
-      lectures = mock (:lectures)
-      Lecture.should_receive(:active).and_return(lectures)
-      get :index
-      assigns(:lectures).should == lectures
-    end
-
-    it 'renders the index page' do
-      Lecture.stub!(:active)
-      get :index
-      response.should render_template('index')
-    end
-
   end
 
 end

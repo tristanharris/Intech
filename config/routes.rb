@@ -56,13 +56,13 @@ Intech::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-  get 'lecture/:id' => 'lecture#show', :as => :lecture
-  get 'lectures' => 'lecture#index', :as => :lectures
   post 'basket' => 'basket#add', :as => :basket_add
   delete 'basket/:item' => 'basket#remove', :as => :basket_remove
   get 'basket' => 'basket#show', :as => :basket
-  get 'series/:id' => 'series#show', :as => :series
-  get 'series' => 'series#index', :as => :series_index
+
+  resources :series, :only => [:index, :show] do
+    resources :lectures, :only => [:show]
+  end
 
   get 'admin', :controller => 'admin/series', :action => :index, :as => :admin
   namespace :admin do
