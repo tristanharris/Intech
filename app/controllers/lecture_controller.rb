@@ -5,7 +5,7 @@ class LectureController < ApplicationController
   end
 
   def show
-    @lecture = Lecture.find(params[:id])
+    @lecture = Lecture.active.find(params[:id])
     @lecture_item = OrderLine.new(:item => @lecture, :quantity => 1)
   end
 

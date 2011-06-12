@@ -4,12 +4,14 @@ describe LectureController do
   describe 'show' do
     before do
       @lecture = mock_model(Lecture)
-      Lecture.stub!(:find => @lecture)
+      @active = mock(:active_lectures, :find => @lecture)
+      Lecture.stub!(:active => @active)
     end
 
     it 'finds the lecture' do
       id = mock(:id)
-      Lecture.should_receive(:find).with(id)
+      Lecture.should_receive(:active)
+      @active.should_receive(:find).with(id)
       get :show, :id => id
       assigns(:lecture).should == @lecture
     end
