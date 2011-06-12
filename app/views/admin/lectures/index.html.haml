@@ -1,6 +1,8 @@
-%h1 Lectures
+%h1
+  = @series ? @series.title : 'All'
+  Lectures
 
 = render @lectures
 
-= link_to 'Add new Lecture', new_admin_lecture_path
+= link_to 'Add new Lecture', [:new, :admin, @series, :lecture]
 

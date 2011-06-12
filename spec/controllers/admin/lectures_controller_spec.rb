@@ -4,7 +4,7 @@ describe Admin::LecturesController do
   describe 'index' do
     it 'fetches all lectures' do
       lectures = mock(:lectures)
-      Lecture.should_receive(:all).and_return(lectures)
+      Lecture.should_receive(:scoped).and_return(lectures)
       get :index
       assigns(:lectures).should == lectures
     end

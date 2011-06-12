@@ -67,7 +67,9 @@ Intech::Application.routes.draw do
   get 'admin', :controller => 'admin/series', :action => :index, :as => :admin
   namespace :admin do
     resources :lectures
-    resources :series
+    resources :series do
+      resources :lectures
+    end
   end
 
   root :to => 'series#index'

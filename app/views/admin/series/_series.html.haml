@@ -1,2 +1,4 @@
 .series
-  %h3= link_to series.title, edit_admin_series_path(series)
+  %p
+    %b= link_to series.title, admin_series_lectures_path(series)
+    = link_to 'edit', edit_admin_series_path(series)

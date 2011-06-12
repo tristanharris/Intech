@@ -6,6 +6,10 @@ class Admin::SeriesController < ApplicationController
     @series = Series.all
   end
 
+  def show
+    @series = Series.find(params[:id])
+  end
+
   def new
     @series = Series.new
     render :edit

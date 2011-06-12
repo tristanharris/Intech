@@ -19,7 +19,7 @@ Feature: Manage series
       | title |
       | Space |
     Given I am on the admin page
-    When I follow "Space"
+    When I follow "edit"
     When I fill in "Title" with "Out there"
     And I press "Update Series"
     Then I should see "Out there"

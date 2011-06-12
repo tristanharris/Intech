@@ -1,5 +1,5 @@
 .lecture
-  %h3= link_to lecture.title, edit_admin_lecture_path(lecture)
+  %h3= link_to lecture.title, [:edit, :admin, @series, lecture]
   %p= lecture.time.pretty
   %p
     Series:
