@@ -19,7 +19,7 @@ class Admin::LecturesController < ApplicationController
   def create
     @lecture = Lecture.new(params[:lecture])
     if @lecture.save
-      redirect_to [:admin, Lecture], :notice => 'Lecture created'
+      redirect_to [:admin, @series, Lecture], :notice => 'Lecture created'
     else
       render :edit
     end
