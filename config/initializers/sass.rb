@@ -9,3 +9,17 @@ Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Sass::Plugin::Ra
 Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Rack::Static',
     :urls => ['/stylesheets'],
     :root => "#{Rails.root}/tmp")
+
+  template_paths = [
+    "#{Gem.loaded_specs['activeadmin'].full_gem_path}/app/assets/stylesheets", # Rails 3.1.x (asset pipeline)
+    "#{Gem.loaded_specs['activeadmin'].full_gem_path}/lib/active_admin/sass" # Rails 3.0.x
+  ]
+
+  old_compile_path = "#{Rails.root}/public/stylesheets"
+  new_compile_path = "#{Rails.root}/tmp/stylesheets"
+
+  template_paths.each do |template_path|
+    Sass::Plugin::remove_template_location( template_path, old_compile_path )
+    Sass::Plugin::add_template_location( template_path, new_compile_path )
+  end
+
