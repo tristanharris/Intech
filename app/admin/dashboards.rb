@@ -35,4 +35,11 @@ ActiveAdmin::Dashboards.build do
   #
   # Will render the "Recent Users" then the "Recent Posts" sections on the dashboard.
 
+     section "Upcomming Events" do
+       ul do
+         Lecture.active.collect do |post|
+           li link_to(post.title, admin_lecture_path(post))
+         end
+       end
+     end
 end
