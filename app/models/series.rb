@@ -1,6 +1,7 @@
 class Series < ActiveRecord::Base
 
-  has_many :lectures
+  has_many :events
+  has_many :lectures, :through => :events
 
   validates_presence_of :title
 

@@ -26,6 +26,10 @@ end
 def create_lecture(data)
   defaults = HashWithIndifferentAccess.new({:title => 'A Lecture', :time => Time.now + 2.days, :open => true, :series => 'default'})
   data = defaults.merge(data)
-  data[:series] = Series.find_or_create_by_title(data[:series]) {|s| s.active = true} if data[:series]
+  data[:event] = data[:series]+'-'+data[:title] unless data[:event]
+  data[:series] = Series.find_or_create_by_title(data[:series]) {|s| s.active = true}
+  data[:event] = Event.find_or_create_by_title(data[:event]) {|s| s.open = true; s.series = data[:series]; s.time = data[:time]}
+  data.delete(:series)
+  puts data.inspect
   Lecture.create! data
 end

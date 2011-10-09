@@ -1,5 +1,5 @@
 ActiveAdmin.register Lecture do
-  filter :series
+  filter :event
   filter :title
   filter :time
 
@@ -9,7 +9,7 @@ ActiveAdmin.register Lecture do
     column :details
     column :max_seats
     column :open
-    column :series
+    column :event
     default_actions
   end
 

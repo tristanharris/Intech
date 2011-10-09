@@ -1,11 +1,11 @@
 class Lecture < ActiveRecord::Base
 
-  belongs_to :series
-  delegate :title, :to => :series, :prefix => true, :allow_nil => true
+  belongs_to :event
+  #delegate :title, :to => :series, :prefix => true, :allow_nil => true
 
-  validates_presence_of :title, :series_id, :time
+  validates_presence_of :title, :event_id, :time
 
-  scope :active, lambda { where(:open => true).where('time > ?', Time.now) }
+  scope :active, lambda { where(:open => true).where('lectures.time > ?', Time.now) }
 
   def date
     time.to_date
