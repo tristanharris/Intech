@@ -12,4 +12,8 @@ class Event < ActiveRecord::Base
     time.to_date
   end
 
+  def active_lectures
+    lectures.active
+  end
+
 end

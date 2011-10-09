@@ -12,7 +12,7 @@ module NavigationHelpers
       '/'
 
     when /^the lecture page for "([^"]+)", "([^"]+)"$/
-      series_lecture_path(Series.find_by_title($1) || raise("Could not find series #{$1}"), Lecture.find_by_title($2) || raise("Could not find lecture #{$2}"))
+      series_event_path(Series.find_by_title($1) || raise("Could not find series #{$1}"), Lecture.find_by_title($2).event || raise("Could not find lecture #{$2}"))
 
     when /^the series page for "([^"]+)"$/
       series_path(Series.find_by_title($1) || raise("Could not find series #{$1}"))

@@ -9,7 +9,7 @@ class BasketController < ApplicationController
   end
 
   def remove
-    current_basket.remove(Lecture.find(params[:item]))
+    current_basket.remove(Event.find(params[:item]))
     redirect_to basket_path
   end
 

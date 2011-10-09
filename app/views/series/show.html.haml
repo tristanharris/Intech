@@ -2,6 +2,6 @@
 .details= @series.details
 
 %ul
-  - @series.active_lectures.each do |lecture|
-    %li= link_to lecture.title, [@series, lecture]
+  - @series.active_events.each do |event|
+    %li= link_to event.title, [@series, event]
 

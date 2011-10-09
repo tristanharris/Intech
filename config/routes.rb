@@ -65,7 +65,7 @@ Intech::Application.routes.draw do
   get 'basket' => 'basket#show', :as => :basket
 
   resources :series, :only => [:index, :show] do
-    resources :lectures, :only => [:show]
+    resources :events, :only => [:show]
   end
 
   root :to => 'series#index'
