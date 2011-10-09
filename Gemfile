@@ -5,6 +5,7 @@ gem 'haml'
 gem 'sass'
 gem 'simple_form'
 gem 'rake', '~> 0.8.7'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'rspec-rails'
